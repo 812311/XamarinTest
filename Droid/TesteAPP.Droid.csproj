@@ -104,6 +104,7 @@
     <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\drawable\background.jpg" />
     <AndroidResource Include="Resources\drawable\Philipe.png" />
+    <AndroidResource Include="Resources\drawable\logoDeR.png" />
   </ItemGroup>
   <Import Project="..\TesteAPP\TesteAPP.projitems" Label="Shared" Condition="Exists('..\TesteAPP\TesteAPP.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

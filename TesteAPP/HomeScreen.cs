@@ -17,7 +17,7 @@ namespace TesteAPP
 			//};
 
 			//this.BackgroundImage = backgroundImage;
-
+			this.BackgroundImage = "images/background.jpg";
 			//var relativeLayout = new RelativeLayout();
 
 			//relativeLayout.Children.Add(backgroundImage,
@@ -27,7 +27,12 @@ namespace TesteAPP
 			//	Constraint.RelativeToParent((parent) => { return parent.Height; }));
 
 			var bgImage = new Image { Aspect = Aspect.AspectFit };
-			bgImage.Source = ImageSource.FromFile("background.jpg");
+
+			bgImage.Source = Device.OnPlatform(
+				iOS: ImageSource.FromFile("/images/logoDeR.png"),
+				Android: ImageSource.FromFile("logoDeR.png"),
+				WinPhone: ImageSource.FromFile("images/logoDeR.png"));
+
 
 			var title = new Label
 			{
@@ -39,13 +44,33 @@ namespace TesteAPP
 
 			var aboutButton = new Button
 			{
+				
 				Text = "Sobre"
+					
 			};
 
 			var signupButton = new Button
 			{
-				Text = "Cadastro"
+				Text = "Cadastrar"
 			};
+
+
+			var cadastroLabel = new Label
+			{
+				Text = "Ainda não se cadastrou? Cadastre-se",
+				TextColor = Color.FromHex("#FFFFFF"),
+				//FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
+				HorizontalOptions = LayoutOptions.CenterAndExpand,
+			};
+
+			var cadastroLabel_tap = new TapGestureRecognizer();
+			cadastroLabel_tap.Tapped += (s, e) =>
+			{
+				Navigation.PushAsync(new SignUp());
+			};
+			cadastroLabel.GestureRecognizers.Add(cadastroLabel_tap);
+
+
 
 			// Here we are implementing a click event using lambda expressions
 			// when a user clicks the `aboutButton` they will navigate to the
@@ -63,18 +88,24 @@ namespace TesteAPP
 
 			var email = new Entry
 			{
-				Placeholder = "E-Mail",
+				Placeholder = "CPF",
+				PlaceholderColor = Color.FromHex("#FFFFFF"),
+				TextColor = Color.FromHex("#FFFFFF"),
 			};
 
 			var password = new Entry
 			{
-				Placeholder = "Password",
+				Placeholder = "Senha",
+				PlaceholderColor = Color.FromHex("#FFFFFF"),
+				TextColor = Color.FromHex("#FFFFFF"),
 				IsPassword = true
 			};
 
 			var login = new Button
 			{
-				Text = "Login"
+				BorderColor = Color.FromHex("#F2CC2B"),
+				BackgroundColor = Color.FromHex("#F2CC2B"),
+				Text = "Entrar"
 			};
 
 			// With the `PushModalAsync` method we navigate the user
@@ -88,9 +119,9 @@ namespace TesteAPP
 
 			Content = new StackLayout
 			{
-				Padding = 30,
+				Padding = 50,
 				Spacing = 10,
-				Children = { title, email, password, login, signupButton, aboutButton }
+				Children = { bgImage, email, password, login, cadastroLabel}
 			};
 		}
 	}

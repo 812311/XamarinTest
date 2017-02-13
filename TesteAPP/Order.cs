@@ -12,7 +12,7 @@ namespace TesteAPP
 			User user = new User
 			{
 				Email = "philipe@eu.com.br",
-				Avatar = "https://avatars1.githubusercontent.com/u/1770570?v=3&s=460"
+				Avatar = "images/Philipe.jpg",
 			};
 
 			// We've also created a new class to hold the cake information.
@@ -40,7 +40,7 @@ namespace TesteAPP
 				Aspect = Aspect.AspectFit,
 				WidthRequest = 60,
 				HeightRequest = 60,
-				Source = ImageSource.FromUri(new Uri(user.Avatar)),
+				Source = ImageSource.FromFile((user.Avatar)),
 			}, 0, 0);
 
 			grid.Children.Add(new Label

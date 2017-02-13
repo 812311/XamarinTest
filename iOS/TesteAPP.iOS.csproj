@@ -119,6 +119,7 @@
     <None Include="packages.config" />
     <None Include="Resources\images\background.jpg" />
     <None Include="Resources\images\Philipe.png" />
+    <None Include="Resources\images\logoDeR.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
