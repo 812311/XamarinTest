@@ -86,7 +86,7 @@ namespace TesteAPP
 				Navigation.PushAsync(new SignUp());
 			};
 
-			var email = new Entry
+			var cpf = new Entry
 			{
 				Placeholder = "CPF",
 				PlaceholderColor = Color.FromHex("#FFFFFF"),
@@ -121,7 +121,7 @@ namespace TesteAPP
 			{
 				Padding = 50,
 				Spacing = 10,
-				Children = { bgImage, email, password, login, cadastroLabel}
+				Children = { bgImage, cpf, password, login, cadastroLabel}
 			};
 		}
 	}
